@@ -7,12 +7,14 @@ import generico.Utils;
 public class ejemploflow {
 
     public static double calcularDesviacionEstandar(int[]arreglo){
-        double desvest;
-        double promedio;
+        double desvest, promedio;
+        //double promedio;
 
 
         double []diferencias = new double[arreglo.length];
         promedio = calcularPromedio(arreglo);
+        calcularDiferenciaArregloValor(arreglo, promedio, diferencias);
+        elevarAlCuadrado(diferencias);
         desvest = sumarArregloReal(diferencias)/diferencias.length;
         
         
@@ -46,12 +48,13 @@ public class ejemploflow {
 
     }
 
-    public static void llenarArreglo(int[]arreglo, String[]etiqueta){
+    public static void llenarArreglo(int[]arreglo, String etiqueta){
         int valor;
 
         for (int i = 0; i < arreglo.length; i++) {
             valor = Utils.leerEntero(""+etiqueta);
             arreglo[i] = valor;
+            
             
             
         }
@@ -60,8 +63,8 @@ public class ejemploflow {
     }
 
     public static int sumarArreglo (int[]arreglo){
-        int total;
-        int valor;
+        int total, valor;
+    
         total = 0;
 
         for (int i = 0; i < arreglo.length; i++) {
@@ -102,15 +105,15 @@ public class ejemploflow {
         int cantidad, edad, suma;
         double promedio, de;
 
+
         Utils.limpiarConsola();
 
 
+
         cantidad = Utils.leerEntero("Digite la cantidad de personas: ");
-        
         int [] edades = new int [cantidad];
-
-        //llamar llenararreglo
-
+        llenarArreglo(edades, "Digite la edad: ");
+        
         suma = sumarArreglo(edades);
         System.out.println(suma);
 
@@ -119,28 +122,16 @@ public class ejemploflow {
 
         de = calcularDesviacionEstandar(edades);
         System.out.println(de);
-        
 
 
-         
-
-
-
-
-
-
-
-
-
-
-   
-        // salarioNetos = new double[n];
-
-
-        //public static void llenarArreglo(int[] arreglo, String[] etiqueta);
  
-        
-    }
+     
+
+      
+ 
+
+
+ }
 
 
 }
